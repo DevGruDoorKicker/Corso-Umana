@@ -52,8 +52,8 @@ public class ArrayListss {
 		}
 		
 		
-		
-		
+		// remove
+		arrayList2.remove(3);
 		
 		
 	}

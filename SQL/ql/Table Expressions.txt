@@ -1,0 +1,48 @@
+Exercises
+
+1-1. Write a query that returns the maximum value in the orderdate column for each employee.
+Tables involved: Sales.Orders table
+Output: empid, maxorderdate
+
+1-2. Encapsulate the query from Exercise 1-1 in a derived table. Write a join query between the derived
+table and the Orders table to return the orders with the maximum order date for each employee.
+Tables involved: Sales.Orders
+Output: empid, orderdate, orderid, custid
+
+/*
+2-1. Write a query that calculates a row number for each order based on orderdate, orderid ordering.
+Tables involved: Sales.Orders
+Output: orderid, orderdate, custid, empid, rownum
+
+
+2-2. Write a query that returns rows with row numbers 11 through 20 based on the row number definition
+in Exercise 2-1. Use a CTE to encapsulate the code from Exercise 2-1.
+Tables involved: Sales.Orders
+Output: orderid, orderdate, custid, empid, rownum
+*/
+
+3. Write a solution using a recursive CTE that returns the management chain leading to Zoya
+Dolgopyatova (employee ID 9).
+Tables involved: HR.Employees
+Output: empid, mgrid, firstname, lastname
+
+4-1. Create a view that returns the total quantity for each employee and year.
+Tables involved: Sales.Orders and Sales.OrderDetails
+SELECT * FROM Sales.VEmpOrders ORDER BY empid, orderyear;
+Output: empid, orderyear, qty
+
+4-2. Write a query against Sales.VEmpOrders that returns the running total quantity for each employee
+and year.
+Tables involved: Sales.VEmpOrders view
+Output: empid, orderyear, qty, runqty
+
+5-1. Create an inline function that accepts as inputs a supplier ID (@supid AS INT) and a requested number of products (@n AS INT). The function should return @n products with the highest unit prices that
+are supplied by the specified supplier ID.
+Tables involved: Production.Products
+SELECT * FROM Production.TopProducts(5, 2);
+Output: productid, productname, unitprice
+
+/*
+5-2. Using the CROSS APPLY operator and the function you created in Exercise 4-1, return, for each supplier, the two most expensive products.
+Output: supplierid, companyname, productid, productname, unitprice
+*/

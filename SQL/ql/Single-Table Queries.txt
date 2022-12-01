@@ -1,0 +1,39 @@
+Exercises 
+
+1. Write a query against the Sales.Orders table that returns orders placed in April 2016.
+Tables involved: Sales.Orders table
+Output: orderid, orderdate, custid, empid
+
+2. Write a query against the Sales.Orders table that returns orders placed on the last day of the month.
+Tables involved: Sales.Orders table
+Output: orderid, orderdate, custid, empid
+Use EOMONTH function
+	
+3. Write a query against the HR.Employees table that returns employees with last name containing the
+letter 'a' twice or more.
+Tables involved: HR.Employees table
+Output: empid, firstname, lastname
+
+4. Write a query against the Sales.OrderDetails table that returns orders with total value (quantity * unitprice) greater than 10,000, sorted by total value.
+Tables involved: Sales.OrderDetails table
+Output: orderid, totalvalue
+
+5. Write a query against the Sales.Orders table that returns the three shipped-to countries with the highest average freight in 2016.
+Tables involved: Sales.Orders table
+Output: shipcountry, avgfreight
+
+6. Write a query against the Sales.Orders table that calculates row numbers for orders based on order
+date ordering (using the order ID as the tiebreaker) for each customer separately.
+Tables involved: Sales.Orders table
+Output: custid, orderdate, orderid, rownum
+
+7. Using the HR.Employees table, figure out the SELECT statement that returns for each employee the
+gender based on the title of courtesy. For ‘Ms. ‘ and ‘Mrs.’ return ‘Female’; for ‘Mr. ‘ return ‘Male’; and in all other cases (for example, ‘Dr. ‘) return ‘Unknown’.
+Tables involved: HR.Employees table
+Output: empid, firstname, lastname, titleofcourtesy, gender
+
+8. Write a query against the Sales.Customers table that returns for each customer the customer ID and
+region. Sort the rows in the output by region, having NULL marks sort last (after non-NULL values).
+Note that the default sort behavior for NULL marks in T-SQL is to sort first (before non-NULL values).
+Tables involved: Sales.Customers table
+Output: custid, region

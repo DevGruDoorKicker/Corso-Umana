@@ -73,3 +73,50 @@ on c.mgrid=p.empid
 ) select* from empsCte
 
 
+--views, proxano le tabelle cioè accedo alle tabelle tramite loro senza toccare di per sé le stesse
+
+/*
+		table	
+		
+view			procedure
+
+
+*/
+
+
+create table tb1(id int, name varchar(50))
+select * from tb1
+
+
+go
+create view v1
+as
+select * from tb1 where id>=2
+
+
+select * from v1
+
+drop view v1
+
+go
+create view v1
+as
+select * from tb1 where id>=2
+ with check option                               --non posso mettere volri sotto al due
+
+
+
+ -- inline table functions, danno indietro una tabella
+go
+create function dbo.GetCustOrders (@cid as int) returns table
+as
+return select * from Sales.Orders where custid=@cid
+go
+
+select * from dbo.GetCustOrders(1) as o
+select od.productid,od.qty from dbo.GetCustOrders(1) as os inner join Sales.OrderDetails as od
+on os.orderid=od.orderid
+
+
+
+

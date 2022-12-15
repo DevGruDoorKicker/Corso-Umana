@@ -139,18 +139,13 @@ public class EmployeeController {
         if (id==null)
             return null;
 
-        employeeRepository.findById(id).get().setNome(newEmployee.getNome());
-        employeeRepository.findById(id).get().setRole(newEmployee.getRole());
-
-        Employee tmpEmployee=null;
+        Employee tmpEmployee= employeeRepository.findById(id).get();
 
         tmpEmployee.setRole(newEmployee.getRole());
         tmpEmployee.setNome(newEmployee.getNome());
-        tmpEmployee.setId(id);
 
         employeeRepository.save(tmpEmployee);
         //employeeRepository.save(employeeRepository.findById(id).get()).setRole(newEmployee.getRole());
-
 
         return  newEmployee;
     }
